@@ -1,0 +1,3 @@
+<?php
+	array_push($_CONSOLE, 'OPEN_CONFIG_PLUGINS_JSON_PHP:'.$_SERVER['PHP_SELF']);
+?>

@@ -1,0 +1,39 @@
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<div id="demo"></div>
+
+<script type="text/javascript">
+    $(function() {
+        $('.submit').on('click', function() {
+            var file_data = $('.image').prop('files')[0];
+            if(file_data != undefined) {
+                var form_data = new FormData();                  
+                form_data.append('file', file_data);
+                $.ajax({
+                    type: 'POST',
+                    url: 'upload.php',
+                    contentType: false,
+                    processData: false,
+                    data: form_data,
+                    success:function(response) {
+                        document.getElementById("demo").innerHTML = response;
+                        console.log(response);
+                        /*if(response == 'success') {
+                            alert('File uploaded successfully.');
+                        } else if(response == 'false') {
+                            alert('Invalid file type.');
+                        } else {
+                            alert('Something went wrong. Please try again.');
+                        }
+ 
+                        $('.image').val('');*/
+                    }
+                });
+            }
+            return false;
+        });
+    });
+</script>
+<form>
+    <input type="file" name="image" class="image" required>
+    <input type="submit" name="submit" class="submit" value="Submit">
+</form>
