@@ -45,7 +45,7 @@
 /******************  |  --  IMPORTANT ! -- |  *********************/
 /***  CREATE A SQL TABLE FOR USER LOG IN EVERY DATABASE BELLOW  ***/
 /******************************************************************/
-	$_MTRANSFER = new SqlServer("localhost", "mtransfer_db", "user_mtransfer", "UserMtransfer#365", "mt_");
+	$_MTRANSFER = new SqlServer("localhost", "db", "user", "pass", "mt_");
 	$_PREFIX = "mt_";
 	$STMT = $_SQL->prepare("SELECT id, name, value FROM ".$_PREFIX."configuration");	
 	$STMT->execute();
